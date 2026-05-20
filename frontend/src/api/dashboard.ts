@@ -1,0 +1,4 @@
+import client from './client';
+export const dashboardApi = {
+  getStats: () => client.get('/dashboard/stats').then(r => r.data),
+};
