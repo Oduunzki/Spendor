@@ -25,7 +25,17 @@
       "Read(//tmp/**)",
       "Read(//private/tmp/design_extract/spendor/**)",
       "Read(//private/tmp/design_extract/spendor/project/frontend/**)",
-      "Bash(pkill -f \"vite\")"
+      "Bash(pkill -f \"vite\")",
+      "Bash(mkdir -p /tmp/spendor_keep)",
+      "Bash(cp -r /Users/audun/Documents/Claudecode/Spendor/frontend/src/api /tmp/spendor_keep/)",
+      "Bash(cp /Users/audun/Documents/Claudecode/Spendor/frontend/src/contexts/AuthContext.tsx /tmp/spendor_keep/)",
+      "Bash(cp /Users/audun/Documents/Claudecode/Spendor/frontend/src/main.tsx /tmp/spendor_keep/)",
+      "Bash(cp /Users/audun/Documents/Claudecode/Spendor/frontend/package.json /tmp/spendor_keep/)",
+      "Bash(npx tsc *)",
+      "Bash(npm install *)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp"
     ]
   }
 }
