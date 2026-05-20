@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 /Users/audun/.claude/skills/ui-ux-pro-max/scripts/search.py \"ADHD fintech gamification dark mobile impulse control\" --design-system -p \"ImpulseGuard\" -f markdown)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git fetch *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
+    ]
+  }
+}
