@@ -1,3 +1,6 @@
+// Spendor — CountdownTimer
+// Same logic, calmer styling. Uses fire/yellow/text-3 colour ramp.
+
 import { useEffect, useState } from 'react';
 import { Clock } from 'lucide-react';
 
@@ -31,15 +34,17 @@ export default function CountdownTimer({ waitUntil }: CountdownTimerProps) {
 
   if (!timeLeft) {
     return (
-      <div className="flex items-center gap-1 text-green text-sm font-medium">
-        <Clock size={14} />
-        <span>Klar for beslutning!</span>
+      <div className="inline-flex items-center gap-1.5 bg-green/12 border border-green/25 text-green text-xs font-bold px-2.5 py-1 rounded-full">
+        <Clock size={12} strokeWidth={2.5} />
+        <span>Klar nå</span>
       </div>
     );
   }
 
-  // Color based on absolute days remaining
-  const color = timeLeft.days >= 3 ? 'text-green' : timeLeft.days >= 1 ? 'text-yellow' : 'text-red';
+  const color =
+    timeLeft.days >= 3 ? 'text-[#B8B2D1]'
+    : timeLeft.days >= 1 ? 'text-yellow'
+    : 'text-fire';
 
   const parts: string[] = [];
   if (timeLeft.days > 0) parts.push(`${timeLeft.days}d`);
@@ -47,8 +52,8 @@ export default function CountdownTimer({ waitUntil }: CountdownTimerProps) {
   if (timeLeft.days === 0) parts.push(`${timeLeft.minutes}m`);
 
   return (
-    <div className={`flex items-center gap-1 text-sm font-medium ${color}`}>
-      <Clock size={14} />
+    <div className={`num inline-flex items-center gap-1.5 text-xs font-bold ${color}`}>
+      <Clock size={12} strokeWidth={2.5} />
       <span>{parts.join(' ')} igjen</span>
     </div>
   );

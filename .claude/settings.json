@@ -7,7 +7,25 @@
       "Bash(git fetch *)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(psql --version)",
+      "Bash(docker --version)",
+      "Bash(brew services *)",
+      "Bash(brew --version)",
+      "Bash(brew install *)",
+      "Bash(npm run *)",
+      "Bash(echo \"Backend PID: $!\")",
+      "Bash(curl -s http://localhost:3001/health)",
+      "Bash(echo \"Frontend PID: $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(curl -s -X POST http://localhost:3001/api/auth/register -H 'Content-Type: application/json' -d '{\"email\":\"audun.storaunet@gmail.com\",\"password\":\"Sommer2026!\",\"display_name\":\"Audun\"}')",
+      "Bash(python3 -m json.tool)",
+      "Bash(mkdir -p /tmp/design_extract)",
+      "Bash(tar -xf /tmp/design_raw.txt -C /tmp/design_extract)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/design_extract/spendor/**)",
+      "Read(//private/tmp/design_extract/spendor/project/frontend/**)",
+      "Bash(pkill -f \"vite\")"
     ]
   }
 }

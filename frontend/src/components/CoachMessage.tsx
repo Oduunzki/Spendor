@@ -1,4 +1,7 @@
-import { Sparkles } from 'lucide-react';
+// Spendor — CoachMessage
+// Strips the gradient + mascot avatar — uses a thin accent stripe + COACH
+// label, same as the v2 prototype. Less "mobile-game NPC", more "Linear-style
+// notification".
 
 interface CoachMessageData {
   id: string;
@@ -13,26 +16,32 @@ interface CoachMessageProps {
   onMarkRead?: (id: string) => void;
 }
 
+const TONE: Record<string, string> = {
+  daily_motivation: 'bg-purple',
+  weekly_summary:   'bg-green',
+  warning:          'bg-red',
+  streak_celebration:'bg-fire',
+};
+
 export default function CoachMessage({ message, onMarkRead }: CoachMessageProps) {
   if (!message) return null;
+  const stripe = TONE[message.message_type] || 'bg-purple';
   return (
     <div
-      className="relative bg-gradient-to-br from-purple/10 to-green/5 border border-purple/20 rounded-2xl p-4 cursor-pointer"
+      className="relative bg-card border border-border rounded-2xl p-4 flex gap-3 items-start cursor-pointer transition-colors hover:border-purple/30"
       onClick={() => !message.read && onMarkRead?.(message.id)}
     >
-      {!message.read && (
-        <span className="absolute -top-2 -right-2 bg-purple text-white text-xs px-2 py-0.5 rounded-full font-bold">
-          Ny
-        </span>
-      )}
-      <div className="flex items-start gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple to-green flex items-center justify-center flex-shrink-0">
-          <Sparkles size={18} className="text-white" />
+      <div className={`w-1 self-stretch rounded-full opacity-70 flex-shrink-0 ${stripe}`} />
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2">
+          <span className="label">Coach</span>
+          {!message.read && (
+            <span className="w-1.5 h-1.5 rounded-full bg-purple animate-pulse" />
+          )}
         </div>
-        <div>
-          <p className="text-xs text-[#6B7280] mb-1 font-medium uppercase tracking-wide">Din coach sier</p>
-          <p className="text-[#F9FAFB] text-sm leading-relaxed">{message.content}</p>
-        </div>
+        <p className="text-[#F5F3FF] text-sm leading-relaxed mt-1.5 font-medium">
+          {message.content}
+        </p>
       </div>
     </div>
   );

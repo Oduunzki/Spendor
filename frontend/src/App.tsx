@@ -1,3 +1,7 @@
+// Spendor — App
+// Same routing as before. Bottom-nav padding bumped to match the new nav
+// height; spinner accent switched to mint to match the global vibe.
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import BottomNav from './components/BottomNav';
@@ -13,13 +17,13 @@ import ProfilePage from './pages/ProfilePage';
 function ProtectedLayout() {
   const { user, isLoading } = useAuth();
   if (isLoading) return (
-    <div className="min-h-screen bg-bg flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-purple border-t-transparent rounded-full animate-spin" />
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-green/30 border-t-green rounded-full animate-spin" />
     </div>
   );
   if (!user) return <Navigate to="/login" replace />;
   return (
-    <div className="min-h-screen bg-bg pb-20">
+    <div className="min-h-screen pb-24">
       <Routes>
         <Route path="/" element={<DashboardPage />} />
         <Route path="/scan" element={<ScanReceiptPage />} />

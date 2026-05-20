@@ -7,11 +7,21 @@
 }
 
 html, body {
-  background-color: #0A0F1E;
-  color: #F9FAFB;
-  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #0E0D17;
+  color: #F5F3FF;
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-feature-settings: 'ss01' on;
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
+}
+
+/* Subtle vertical wash on the app shell — same vibe as the v2 mockups. */
+body {
+  background:
+    radial-gradient(140% 60% at 50% 0%, #1A172A 0%, #0E0D17 65%),
+    #0E0D17;
+  min-height: 100vh;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -22,21 +32,31 @@ html, body {
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: #0A0F1E;
-}
-::-webkit-scrollbar-thumb {
-  background: #374151;
-  border-radius: 2px;
-}
+/* Hide scrollbars — same as the prototype */
+::-webkit-scrollbar { width: 0; height: 0; }
+* { scrollbar-width: none; }
 
 /* Skeleton loading */
 .skeleton {
-  background: linear-gradient(90deg, #1F2937 25%, #374151 50%, #1F2937 75%);
+  background: linear-gradient(90deg, #1C1A28 25%, #2A2740 50%, #1C1A28 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s linear infinite;
+}
+
+/* Tabular numerals utility — use for money + XP */
+.num {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Small caps label */
+.label {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6E6889;
 }
